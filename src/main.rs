@@ -81,9 +81,73 @@ fn main() {
               "August", "September", "October", "November", "December"];
     println!("The third month is {}", months[2]);
 
-    another_function();
+    let x = another_function(5);
+    println!("The value of x is: {}", x);
+
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    println!("The value of number is: {}", number);
+
+    // while loop
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number = number - 1;
+    }
+
+    println!("LIFTOFF!!!");
+
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
+    let temp_fah: f32 = celsius_to_fahrenheit(30.0);
+    println!("{}", temp_fah);
+
+    let temp_cel: f32 = fahrenheit_to_celsius(50.0);
+    println!("{}", temp_cel);
 }
 
-fn another_function() {
-    println!("Another function.");
+fn another_function(x: i32) -> i32 {
+    // Note the x line without a semicolon at the end, which is unlike most
+    // of the lines you’ve seen so far. Expressions do not include ending semicolons.
+    // If you add a semicolon to the end of an expression, you turn it into a statement,
+    // which will then not return a value.
+    x
+}
+
+fn celsius_to_fahrenheit(temp: f32) -> f32 {
+    let fah: f32 = (temp * 1.8) + 32.0;
+    fah
+}
+
+fn fahrenheit_to_celsius(temp: f32) -> f32 {
+    // (50°F - 32) x .5556 = 10°C
+    let cel: f32 = (temp - 32.0) * 0.5556;
+    cel
 }
